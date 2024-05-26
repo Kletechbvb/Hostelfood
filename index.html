@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Menu</title>
+    <style>
+        body {
+            background-color: #1E1E1E;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .menu-container {
+            width: 80%;
+            max-width: 1000px;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table th, .table td {
+            padding: 15px;
+            border: 1px solid #444;
+            text-align: left;
+        }
+
+        .table th {
+            background-color: #555;
+        }
+
+        .table tr:nth-child(even) {
+            background-color: #2E2E2E;
+        }
+
+        .table tr:nth-child(odd) {
+            background-color: #1E1E1E;
+        }
+
+        .current {
+            background-color: #ffeb3b; /* Bright yellow */
+            color: #DAA520;
+        }
+    </style>
+</head>
+<body>
+    <div id="menu" class="menu-container">
+        <!-- The menu will be generated dynamically here -->
+    </div>
+    <script>
+        const menu = {
+            Monday: {
+                Breakfast: ['Upma', 'Sheera', 'Chutney', 'Tea'],
+                Lunch: ['White Rice', 'Green Peas Rice', 'Dal Coconut', 'Rajma Masala', 'Chapati', 'Curd'],
+                Snacks: ['Veg Puff', 'Tomato Sauce', 'Tea Coffee'],
+                Dinner: ['White Rice', 'Dal Tadka', 'Sambar', 'Black Chana Chatpata', 'Tomato Bhartha', 'Chapati', 'Curd', 'Banana']
+            },
+            Tuesday: {
+                Breakfast: ['Vegetable Kurma Puri', 'Chutney', 'Samber', 'Tea'],
+                Lunch: ['White Rice', 'Dal Fry', 'Chowli Gojmatt', 'Bharatha Baigan', 'Chapati', 'Curd', 'Salad'],
+                Snacks: ['Bread Pizza', 'Tomato Sauce', 'Tea Coffee'],
+                Dinner: ['White Rice', 'Dal Palak', 'Rasam', 'Turiya Engayi', 'Matki Sprout Dry', 'Chapati', 'Curd', 'Banana']
+            },
+            Wednesday: {
+                Breakfast: ['Onion Uttappa', 'Chutney', 'Tea'],
+                Lunch: ['White Rice', 'Dal Methi', 'Pepper Rassam', 'Lal Math Masala', 'Chole Semi Dry', 'Chapati', 'Curd', 'Soya Sticks'],
+                Snacks: ['Semiya Upma', 'Chutney', 'Tea Coffee'],
+                Dinner: ['White Rice', 'Dal', 'Sambar', 'Akka Mashoor Masala', 'Bhindi Dry', 'Chapati', 'Curd', 'Banana']
+            },
+            Thursday: {
+                Breakfast: ['Veg Pulao', 'Raita', 'Tea'],
+                Lunch: ['White Rice', 'Samber', 'Dondakaya Yangai', 'Green Moog Dry', 'Chapati', 'Curd', 'Salad'],
+                Snacks: ['Onion Bhajiya', 'Chutney', 'Tea Coffee'],
+                Dinner: ['White Rice', 'Khushka Rice', 'Dal Fry', 'Paneer Butter Masala', 'Chapati', 'Curd', 'Boondi', 'Banana']
+            },
+            Friday: {
+                Breakfast: ['Idli Vada', 'Samber', 'Chutney', 'Tea'],
+                Lunch: ['White Rice', 'Dal', 'Red Chowli Dry', 'Dumaloo Kashmiri', 'Chapati', 'Curd', 'Mirchi & Onion'],
+                Snacks: ['Pani Puri', 'Biscuit', 'Tea Coffee'],
+                Dinner: ['White Rice', 'Dal Fry', 'Samber', 'Baby Corn Mushroom', 'Chapati', 'Curd', 'Chutney', 'Banana']
+            },
+            Saturday: {
+                Breakfast: ['Poha', 'Khara', 'Tea'],
+                Lunch: ['White Rice', 'Samber', 'Veg Hydrabadi Masala', 'Matki Sprout Dry', 'Chapati', 'Curd', 'Salad'],
+                Snacks: ['Girmitt', 'Tea Coffee'],
+                Dinner: ['White Rice', 'Dal', 'Majjige Sari', 'Udabale Pallyaa', 'Baigan Bhagara', 'Chapati', 'Curd', 'Banana']
+            },
+            Sunday: {
+                Breakfast: ['Masala Dosa', 'Chutney', 'Tea'],
+                Lunch: ['White Rice', 'Dal Makhani Wala', 'Paneer Tikka Masala', 'Mohan Thal', 'Chapati', 'Curd', 'Tandoor Salad'],
+                Snacks: ['Biscuit', 'Tea'],
+                Dinner: ['Rice', 'Dal', 'Sambar', 'Papad', 'Curd']
+            }
+        };
+
+        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+        function isMealTime(currentMeal) {
+            const now = new Date();
+            const currentTime = now.getHours() * 100 + now.getMinutes();
+
+            switch (currentMeal) {
+                case 'Breakfast':
+                    return currentTime >= 600 && currentTime < 1000;
+                case 'Lunch':
+                    return currentTime >= 1000 && currentTime < 1500;
+                case 'Snacks':
+                    return currentTime >= 1500 && currentTime < 1830;
+                case 'Dinner':
+                    return currentTime >= 1830 && currentTime <= 2230;
+                default:
+                    return false;
+            }
+        }
+
+        function createMenu(day, currentMeal) {
+            const container = document.getElementById('menu');
+            container.innerHTML = '';  // Clear previous content
+
+            const table = document.createElement('table');
+            table.classList.add('table');
+
+            const headerRow = document.createElement('tr');
+            const dayHeader = document.createElement('th');
+            dayHeader.colSpan = 2;
+
+            // Check if it's after 10:30 PM
+            const now = new Date();
+            const currentTime = now.getHours() * 100 + now.getMinutes();
+            if (currentTime >= 2230) {
+                dayHeader.textContent = 'Good Night!';
+            } else {
+                dayHeader.textContent = `${day} - ${currentMeal}`;
+
+                // Add text based on meal time
+                const readyText = document.createElement('span');
+                if (isMealTime(currentMeal)) {
+                    readyText.textContent = 'Getting Ready 🥙';
+                } else {
+                    readyText.textContent = 'Ready 💚';
+                }
+                dayHeader.appendChild(readyText);
+            }
+
+            headerRow.appendChild(dayHeader);
+            table.appendChild(headerRow);
+
+            if (menu[day] && menu[day][currentMeal]) {
+                menu[day][currentMeal].forEach(item => {
+                    const row = document.createElement('tr');
+                    const cell = document.createElement('td');
+                    cell.colSpan = 2;
+                    cell.textContent = item;
+                    row.appendChild(cell);
+                    table.appendChild(row);
+                });
+            } else {
+                const row = document.createElement('tr');
+                const cell = document.createElement('td');
+                cell.colSpan = 2;
+                cell.textContent = 'No items';
+                row.appendChild(cell);
+                table.appendChild(row);
+            }
+
+            container.appendChild(table);
+        }
+
+        updateMenu();
+        setInterval(updateMenu, 60 * 1000);  // Update every minute to check the current time
+    </script>
+</body>
+</html>
+
