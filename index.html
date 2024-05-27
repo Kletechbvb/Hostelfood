@@ -52,6 +52,10 @@
             background-color: #ffeb3b; /* Bright yellow */
             color: #DAA520;
         }
+
+        .meal-title {
+            margin-right: 10px;
+        }
     </style>
 </head>
 <body>
@@ -130,11 +134,11 @@
 
             if (currentTime >= 600 && currentTime < 1000) {
                 return 'Breakfast';
-            } else if (currentTime >= 1200 && currentTime < 1500) {
+            } else if (currentTime >= 1000 && currentTime < 1500) {
                 return 'Lunch';
-            } else if (currentTime >= 1500 && currentTime < 1800) {
+            } else if (currentTime >= 1500 && currentTime < 1850) {
                 return 'Snacks';
-            } else if (currentTime >= 1900 && currentTime < 2200) {
+            } else if (currentTime >= 1850 && currentTime < 2200) {
                 return 'Dinner';
             } else {
                 return null;
@@ -158,15 +162,19 @@
             if (currentTime >= 2230) {
                 dayHeader.textContent = 'Good Night!';
             } else {
-                dayHeader.textContent = ` ${currentMeal} `;
+                const mealTitle = document.createElement('span');
+                mealTitle.classList.add('meal-title');
+                
+                mealTitle.textContent = `    ${currentMeal}~ ~ ~ ~ ~ ~ ~>>`;
 
-                // Add text based on meal time
                 const readyText = document.createElement('span');
                 if (isMealTime(currentMeal)) {
-                    readyText.textContent = '';
+                    readyText.textContent = '   Ready🟢  ';
                 } else {
-                    readyText.textContent = '';
+                    readyText.textContent = 'Getting Ready 🥙';
                 }
+
+                dayHeader.appendChild(mealTitle);
                 dayHeader.appendChild(readyText);
             }
 
@@ -202,8 +210,7 @@
             if (currentMeal) {
                 createMenu(currentDay, currentMeal);
             } else {
-                const container = document.getElementById('menu');
-                container.innerHTML = '<p>No meal currently.</p>';
+                document.getElementById('menu').innerHTML = '<p>No meal available at this time.</p>';
             }
         }
 
