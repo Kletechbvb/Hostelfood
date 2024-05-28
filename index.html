@@ -63,50 +63,51 @@
         <!-- The menu will be generated dynamically here -->
     </div>
     <script>
-        const menu = {
-            Monday: {
-                Breakfast: ['Upma', 'Sheera', 'Chutney', 'Tea'],
-                Lunch: ['White Rice', 'Green Peas Rice', 'Dal Coconut', 'Rajma Masala', 'Chapati', 'Curd'],
-                Snacks: ['Veg Puff', 'Tomato Sauce', 'Tea Coffee'],
-                Dinner: ['White Rice', 'Dal Tadka', 'Sambar', 'Black Chana Chatpata', 'Tomato Bhartha', 'Chapati', 'Curd', 'Banana']
-            },
-            Tuesday: {
-                Breakfast: ['Vegetable Kurma Puri', 'Chutney', 'Sambar', 'Tea'],
-                Lunch: ['White Rice', 'Dal Fry', 'Chowli Gojmatt', 'Bharatha Baigan', 'Chapati', 'Curd', 'Salad'],
-                Snacks: ['Bread Pizza', 'Tomato Sauce', 'Tea Coffee'],
-                Dinner: ['White Rice', 'Dal Palak', 'Rasam', 'Turiya Engayi', 'Matki Sprout Dry', 'Chapati', 'Curd', 'Banana']
-            },
-            Wednesday: {
-                Breakfast: ['Onion Uttappa', 'Chutney', 'Tea'],
-                Lunch: ['White Rice', 'Dal Methi', 'Pepper Rassam', 'Lal Math Masala', 'Chole Semi Dry', 'Chapati', 'Curd', 'Soya Sticks'],
-                Snacks: ['Semiya Upma', 'Chutney', 'Tea Coffee'],
-                Dinner: ['White Rice', 'Dal', 'Sambar', 'Akka Mashoor Masala', 'Bhindi Dry', 'Chapati', 'Curd', 'Banana']
-            },
-            Thursday: {
-                Breakfast: ['Veg Pulao', 'Raita', 'Tea'],
-                Lunch: ['White Rice', 'Sambar', 'Dondakaya Yangai', 'Green Moog Dry', 'Chapati', 'Curd', 'Salad'],
-                Snacks: ['Onion Bhajiya', 'Chutney', 'Tea Coffee'],
-                Dinner: ['White Rice', 'Khushka Rice', 'Dal Fry', 'Paneer Butter Masala', 'Chapati', 'Curd', 'Boondi', 'Banana']
-            },
-            Friday: {
-                Breakfast: ['Idli Vada', 'Sambar', 'Chutney', 'Tea'],
-                Lunch: ['White Rice', 'Dal', 'Red Chowli Dry', 'Dumaloo Kashmiri', 'Chapati', 'Curd', 'Mirchi & Onion'],
-                Snacks: ['Pani Puri', 'Biscuit', 'Tea Coffee'],
-                Dinner: ['White Rice', 'Dal Fry', 'Sambar', 'Baby Corn Mushroom', 'Chapati', 'Curd', 'Chutney', 'Banana']
-            },
-            Saturday: {
-                Breakfast: ['Poha', 'Khara', 'Tea'],
-                Lunch: ['White Rice', 'Sambar', 'Veg Hydrabadi Masala', 'Matki Sprout Dry', 'Chapati', 'Curd', 'Salad'],
-                Snacks: ['Girmitt', 'Tea Coffee'],
-                Dinner: ['White Rice', 'Dal', 'Majjige Sari', 'Udabale Pallyaa', 'Baigan Bhagara', 'Chapati', 'Curd', 'Banana']
-            },
-            Sunday: {
-                Breakfast: ['Masala Dosa', 'Chutney', 'Tea'],
-                Lunch: ['White Rice', 'Dal Makhani Wala', 'Paneer Tikka Masala', 'Mohan Thal', 'Chapati', 'Curd', 'Tandoor Salad'],
-                Snacks: ['Biscuit', 'Tea'],
-                Dinner: ['Rice', 'Dal', 'Sambar', 'Papad', 'Curd']
-            }
-        };
+      const menu = {
+    Monday: {
+        Breakfast: ['Upma', 'Sheera', 'Chutney', 'Tea'],
+        Lunch: ['White Rice', 'Dalchaa', 'Rasam', 'Chole Panjabi', 'Batata Chi Bhaji', 'Chapati', 'Curd', 'Rataloo Bhajiya'],
+        Snacks: ['Maggi', 'Tea Coffee'],
+        Dinner: ['White Rice', 'Dal Surthi', 'Palak Samber', 'Red Chawlu Ghasi', 'Baigan Maratha', 'Chapati', 'Curd', 'Banana']
+    },
+    Tuesday: {
+        Breakfast: ['Vegetable Kurma Puri', 'Chutney', 'Tea'],
+        Lunch: ['White Rice', 'Dal Tawa', 'Cut Saar', 'Shefoo Toor Dal', 'Chapati', 'Curd', 'Chutney', 'Salad'],
+        Snacks: ['Mysore Bhaji', 'Red Chutney', 'Tea Coffee'],
+        Dinner: ['Steam Rice', 'Dal Tadka', 'Rasam', 'Akkha Masoor Masala', 'Matki Sprout Dry', 'Chapati', 'Curd', 'Banana']
+    },
+    Wednesday: {
+        Breakfast: ['Set Dosa', 'Samber', 'Chutney', 'Tea'],
+        Lunch: ['White Rice', 'Vanghi Bhath', 'Dal Kolhapuri', 'Rasam', 'Paneer Kofta Curry', 'Soyabben Dry', 'Chapati', 'Curd', 'Mirchi Techa'],
+        Snacks: ['Seviya Upma', 'Chutney', 'Tea Coffee'],
+        Dinner: ['White Rice', 'Masala Dal', 'Sambar', 'Flower Tomato Dry', 'Chapati', 'Badam Milk', 'Banana']
+    },
+    Thursday: {
+        Breakfast: ['Veg Pulao', 'Raita', 'Tea'],
+        Lunch: ['White Rice', 'Dal Moglai', 'Singha Saar', 'Dondakayi Dal Bhaji', 'Green Moong Sprout Dry', 'Chapati', 'Chutney', 'Salad'],
+        Snacks: ['Girmit', 'Tea Coffee'],
+        Dinner: ['Steam Rice', 'Green Peas Rice', 'Dal Fry', 'Aloo Shukha', 'Puri', 'Chutney', 'Curd', 'Banana']
+    },
+    Friday: {
+        Breakfast: ['Idli Vada', 'Samber', 'Chutney', 'Tea'],
+        Lunch: ['White Rice', 'Polyogare Rice', 'Dal Fry', 'Rasam', 'Methi Mutter Masala', 'Bhindi Achari', 'Chapati', 'Curd', 'Onion & Mirchi'],
+        Snacks: ['Mogali Chat', 'Tea Coffee'],
+        Dinner: ['White Rice', 'Green Peas Rice', 'Dal Fry', 'Black Chana Malwani', 'Suran Semi Dry', 'Chapati', 'Curd', 'Banana']
+    },
+    Saturday: {
+        Breakfast: ['Poha', 'Curd', 'Tea'],
+        Lunch: ['White Rice', 'Dal', 'Vegetable Samber', 'Drumstick Curry', 'White Lobia Dry', 'Chapati', 'Raita', 'Chutney', 'Salad'],
+        Snacks: ['Panjabi Tossed', 'Tomato Souce', 'Tea Coffee'],
+        Dinner: ['White Rice', 'Dal', 'Majjige Sar', 'Aloo Mutter Ghasi', 'Beetroot Poriyal', 'Chapati', 'Curd', 'Banana']
+    },
+    Sunday: {
+        Breakfast: ['Masala Dosa', 'Chutney', 'Tea'],
+        Lunch: ['White Rice', 'Veg Afgani Pulav', 'Dal', 'Paneer Palak', 'Chapati', 'Sev Kheer', 'Chutney', 'Salad'],
+        Snacks: ['Biscuit', 'Tea'],
+        Dinner: ['White Rice', 'Dal', 'Sambar', 'Papad', 'Curd', 'Banana']
+    }
+};
+
 
         const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
